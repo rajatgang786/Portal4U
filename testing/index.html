@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax</title>
+	<script type="text/javascript">
+	function throw_request () {
+
+		var ajax = new XMLHttpRequest();	
+
+		ajax.onreadystatechange = doit;
+
+		function doit()
+		{
+			if (ajax.readyState==4 && ajax.status==200)
+				{	var json = ajax.responseText;
+					//var name = eval("(function(){return " + json+ ";})()");
+					var name = JSON.parse(json);
+
+					document.getElementById("text_visible").innerHTML = name.lastName+ " " + name.firstName;
+				}
+		}
+
+		ajax.open("POST","processor/robot.php",true);
+		ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		ajax.send("packet=Kush");
+	}
+	</script>
+</head>
+<body>
+	<div id="text_visible">
+		Hello World
+	</div>
+
+	<input type="button" value="Throw" onclick="throw_request()" >
+
+
+</body>
+</html>

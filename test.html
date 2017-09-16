@@ -1,0 +1,41 @@
+<html>
+<head>
+	<script type="text/javascript">
+		function check () {
+			var field = document.getElementById('kush');
+			var val = field.value;
+
+			if(val.length > 0 )
+				alert("No problem");
+			else
+				alert("Problem!!");
+		}
+	</script>
+	<style type="text/css">
+	.abs{
+		position: absolute;
+	}
+	.rel{
+		position: relative;
+	}
+
+	.wrapper{
+		position: relative;
+	}
+	</style>		
+</head>
+
+<body>
+<form>
+	<div>
+		<input type="text" id="kush"/>*
+		<input type="submit" onclick="check()">
+	</div>
+
+	<div class="wrapper">
+		<div class=".abs">Absolute</div>
+		<div class=".rel">Relative</div>
+	</div>
+</form>
+</body>
+</html>
